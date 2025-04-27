@@ -1,2 +1,2 @@
-# CatTastophy
+# CatTastrophy
 group project 
