@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://bax050reo707w"]
+
+[ext_resource type="Texture2D" uid="uid://buy2dd8bsgrfd" path="res://Mushroom-Idle.png" id="1_chb8m"]
+[ext_resource type="Script" uid="uid://d3f7mkcbkimt5" path="res://enemy.gd" id="1_j81oi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfjic"]
+atlas = ExtResource("1_chb8m")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvkwu"]
+atlas = ExtResource("1_chb8m")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3fb4"]
+atlas = ExtResource("1_chb8m")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uhy3"]
+atlas = ExtResource("1_chb8m")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_683l2"]
+atlas = ExtResource("1_chb8m")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yp54w"]
+atlas = ExtResource("1_chb8m")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcf12"]
+atlas = ExtResource("1_chb8m")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xqsgr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfjic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvkwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3fb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uhy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_683l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yp54w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcf12")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2glyq"]
+size = Vector2(20, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tc0a5"]
+
+[node name="Enemy" type="RigidBody2D"]
+script = ExtResource("1_j81oi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(593, 708)
+scale = Vector2(0.80625, 0.789062)
+sprite_frames = SubResource("SpriteFrames_xqsgr")
+autoplay = "default"
+frame_progress = 0.973027
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(593, 721.5)
+shape = SubResource("RectangleShape2D_2glyq")
+
+[node name="CharacterBody2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_tc0a5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

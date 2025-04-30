@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://0cxowc17vq4u"]
+
+[ext_resource type="FontFile" uid="uid://b8n54cn5vd3aa" path="res://Bavista_Soulare.ttf" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://bx1t1yjfohlix" path="res://Background.png" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://bxp7l2n5s4xdr" path="res://main_menu.gd" id="1_fu7sn"]
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_fu7sn")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_top = 8.0
+offset_right = 1152.0
+offset_bottom = 641.0
+texture = ExtResource("1_7vrkn")
+
+[node name="MainButtons" type="MarginContainer" parent="."]
+offset_left = -8.0
+offset_right = 1144.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 150
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainButtons"]
+layout_mode = 2
+
+[node name="Game Name Label" type="Label" parent="MainButtons/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_06t4h")
+theme_override_font_sizes/font_size = 100
+text = "CAT-ASTROPHE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainButtons/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="MainButtons/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartGame" type="Button" parent="MainButtons/VBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_06t4h")
+theme_override_font_sizes/font_size = 60
+text = "START GAME"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainButtons/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ExitGame" type="Button" parent="MainButtons/VBoxContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_06t4h")
+theme_override_font_sizes/font_size = 60
+text = "EXIT GAME"
